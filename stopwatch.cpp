@@ -3,19 +3,18 @@
 StopWatch::StopWatch(QObject *parent)
     : QObject{parent}
 {
-
+    timer = new QTimer(this);
+    QObject::connect(timer,  &QTimer::timeout, this, &StopWatch::timerSlot);
 }
 
 void StopWatch::start()
 {
-    t = new QTimer(this);
-    QObject::connect(t,  &QTimer::timeout, this, &StopWatch::timerSlot);
-    t->start(100);
+    timer->start(100);
 }
 
 void StopWatch::stop()
 {
-    QObject::disconnect(t,  &QTimer::timeout, this, &StopWatch::timerSlot);
+    timer->stop();
 }
 
 void StopWatch::circle()
@@ -28,7 +27,6 @@ void StopWatch::circle()
 
 void StopWatch::clear()
 {
-    this->stop();
     circles_ms = 0;
     circles_m = 0;
     circles_s = 0;
