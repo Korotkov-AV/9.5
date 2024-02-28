@@ -13,6 +13,7 @@ public:
     void stop();
     void circle();
     void clear();
+    ~StopWatch();
 private:
     int ms = 0;
     int s = 0;
