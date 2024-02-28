@@ -7,6 +7,11 @@ StopWatch::StopWatch(QObject *parent)
     QObject::connect(timer,  &QTimer::timeout, this, &StopWatch::timerSlot);
 }
 
+StopWatch::~StopWatch()
+{
+    delete timer;
+}
+
 void StopWatch::start()
 {
     timer->start(100);
