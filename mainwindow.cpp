@@ -56,8 +56,6 @@ void MainWindow::on_btn_clear_clicked()
     sw->clear();
     ui->lbl_time->setText("0");
     ui->tbr_circles->clear();
-    ui->btn_start->setText("Старт");
-    ui->btn_circle->setEnabled(false);
     circles = 0;
 }
 
